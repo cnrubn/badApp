@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { BadModule } from './bad/bad.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,8 +14,10 @@ import { BadModule } from './bad/bad.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     SharedModule,
-    BadModule
+    BadModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

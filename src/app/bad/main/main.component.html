@@ -1,1 +1,68 @@
-<p>main works!</p>
+
+
+<div class="row main">
+
+    <div class="alert alert-success alerta" 
+         role="alert"
+         *ngIf="charactersBad.length === 0; else coleccionFichas">
+            Cargando información...
+    </div>
+
+
+    <ng-template #coleccionFichas>
+
+        <div class="busqueda">
+
+            <input type="text" class="form-control" placeholder="Walter White..." (input)="filtro($event)">
+    
+        </div>   
+        
+        <div class="col d-flex flex-row justify-content-evenly flex-wrap">
+            
+            <div class="card mt-3" 
+                 style="width: 18rem;"
+                 *ngFor="let item of charactersBad">
+    
+                
+                <div class="marcoImg">
+                    <img [src]="item.img" class="card-img-top" alt="...">
+    
+                </div>
+    
+    
+    
+                <div class="card-body">
+                    
+    
+    
+    
+                    <span class="btn btn-sm float-end"
+                          [ngClass]="{
+                        'btn-success': item.status.toLowerCase().includes('alive'),
+                        'btn-danger': !item.status.toLowerCase().includes('alive')
+                        }">
+                        {{ item.status }}
+                    </span>
+    
+                    <h3>{{ item.name }}</h3>
+                    <p>{{ item.portrayed }}</p>
+                    
+                    <hr>
+    
+                    <div class="marcoProfesiones">
+                        <ul *ngFor="let item2 of item.occupation">
+                            <li>{{ item2 }}</li>
+                        </ul>
+                    </div>
+    
+    
+    
+                </div>
+              </div>
+    
+        </div>
+        
+    </ng-template>
+
+    
+</div>
