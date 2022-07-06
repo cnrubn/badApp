@@ -2,20 +2,20 @@
 
 <div class="row main">
 
+    <div class="busqueda">
+        
+        <input type="text" class="form-control" placeholder="Walter White..." (input)="filtro($event)">
+    
+    </div> 
+
     <div class="alert alert-success alerta" 
          role="alert"
-         *ngIf="charactersBad.length === 0; else coleccionFichas">
+         *ngIf="charactersBadSearch.length === 0; else coleccionFichas">
             Cargando información...
     </div>
 
 
     <ng-template #coleccionFichas>
-
-        <div class="busqueda">
-
-            <input type="text" class="form-control" placeholder="Walter White..." (input)="filtro($event)">
-    
-        </div>   
         
         <div class="col d-flex flex-row justify-content-evenly flex-wrap">
             
