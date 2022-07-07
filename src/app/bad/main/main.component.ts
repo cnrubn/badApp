@@ -21,18 +21,18 @@ export class MainComponent implements OnInit {
       // console.log( this.charactersBad );
 
 
-      this.charactersBad = data.map( resp => {
+      this.charactersBad = data.map( ({ char_id, img, status, name, portrayed, occupation }: BadInterface ) => {
         return {
-          char_id: resp.char_id,
-          img: resp.img,
-          status: resp.status,
-          name: resp.name,
-          portrayed: resp.portrayed,
-          occupation: resp.occupation,
+          char_id,
+          img,
+          status,
+          name,
+          portrayed,
+          occupation,
         }
       })
       
-      console.log( this.charactersBad );
+      // console.log( this.charactersBad );
       
       this.charactersBadSearch = this.charactersBad;
       
@@ -40,7 +40,6 @@ export class MainComponent implements OnInit {
     });
     
     
-    console.log( 'fuera: ', this.charactersBad );
   }
 
   ngOnInit(): void {
@@ -52,7 +51,7 @@ export class MainComponent implements OnInit {
     
     const search: string = event.target.value;
 
-    console.log({ search });
+    // console.log({ search });
 
 
     this.charactersBad = this.charactersBadSearch?.filter(({ name }: BadInterface) => {
