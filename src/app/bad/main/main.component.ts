@@ -16,12 +16,31 @@ export class MainComponent implements OnInit {
 
     this.badService.getBad()
     .subscribe( data => {
+
       this.charactersBad = data;
-      this.charactersBadSearch = data;
       // console.log( this.charactersBad );
 
+
+      this.charactersBad = data.map( resp => {
+        return {
+          char_id: resp.char_id,
+          img: resp.img,
+          status: resp.status,
+          name: resp.name,
+          portrayed: resp.portrayed,
+          occupation: resp.occupation,
+        }
+      })
+      
+      console.log( this.charactersBad );
+      
+      this.charactersBadSearch = this.charactersBad;
+      
+      
     });
     
+    
+    console.log( 'fuera: ', this.charactersBad );
   }
 
   ngOnInit(): void {

@@ -3,15 +3,15 @@
 export interface BadInterface {
     char_id:                     number;
     name:                        string;
-    birthday:                    Birthday;
-    occupation:                  string[];
+    birthday?:                    Birthday;
+    occupation?:                  string[];
     img:                         string;
     status:                      Status;
-    nickname:                    string;
-    appearance:                  number[];
+    nickname?:                    string;
+    appearance?:                  number[];
     portrayed:                   string;
-    category:                    Category;
-    better_call_saul_appearance: number[];
+    category?:                    Category;
+    better_call_saul_appearance?: number[];
 }
 
 export enum Birthday {
